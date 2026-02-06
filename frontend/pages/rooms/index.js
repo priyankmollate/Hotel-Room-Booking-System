@@ -87,7 +87,7 @@ export async function getServerSideProps() {
     return {
       props: {
         rooms: null,
-        error: err?.data
+        error: err?.data || { message: 'Failed to fetch rooms' }
       }
     };
   }
