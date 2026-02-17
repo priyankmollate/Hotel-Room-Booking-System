@@ -30,6 +30,8 @@ module.exports = {
     'no-nested-ternary': 'off',
     'react/prop-types': 'off',
     'linebreak-style': 'off',
-    'max-len': 'off'
+    'max-len': 'off',
+    'react/jsx-indent': 'off',
+    'react/jsx-one-expression-per-line': 'off'
   }
 };
