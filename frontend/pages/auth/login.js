@@ -46,80 +46,80 @@ function Login() {
       <MainLayout title='Macau Resort ― Login'>
         <div className='auth-wrap'>
           <div className='auth-card'>
-          <Form
-            form={form}
-            className='login-form'
-            initialValues={{ remember: true }}
-            name='macau-resort-login-form'
-            onFinish={onFinish}
-          >
-            <Form.Item
-              name='email'
-              rules={[{
-                required: true,
-                message: 'Please input your Email!'
-              }]}
+            <Form
+              form={form}
+              className='login-form'
+              initialValues={{ remember: true }}
+              name='macau-resort-login-form'
+              onFinish={onFinish}
             >
-              <Input
-                prefix={<MailOutlined className='site-form-item-icon' />}
-                placeholder='Email'
-                size='large'
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='password'
-              rules={[{
-                required: true,
-                message: 'Please input your Password!'
-              }]}
-            >
-              <Input.Password
-                prefix={<LockOutlined className='site-form-item-icon' />}
-                placeholder='Password'
-                type='password'
-                size='large'
-              />
-            </Form.Item>
-
-            <Form.Item>
               <Form.Item
-                valuePropName='checked'
-                name='remember'
-                noStyle
+                name='email'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Email!'
+                }]}
               >
-                <Checkbox>Remember me</Checkbox>
+                <Input
+                  prefix={<MailOutlined className='site-form-item-icon' />}
+                  placeholder='Email'
+                  size='large'
+                />
+              </Form.Item>
+
+              <Form.Item
+                name='password'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Password!'
+                }]}
+              >
+                <Input.Password
+                  prefix={<LockOutlined className='site-form-item-icon' />}
+                  placeholder='Password'
+                  type='password'
+                  size='large'
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Form.Item
+                  valuePropName='checked'
+                  name='remember'
+                  noStyle
+                >
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <Link
+                  className='btn-forgot-password'
+                  href='/auth/forgot-password'
+                >
+                  Forgot Password
+                </Link>
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  className='login-form-button'
+                  htmlType='submit'
+                  type='primary'
+                  size='large'
+                  block
+                  loading={loading}
+                  disabled={loading}
+                >
+                  Log In
+                </Button>
               </Form.Item>
 
               <Link
-                className='btn-forgot-password'
-                href='/auth/forgot-password'
+                className='btn-login-registration'
+                href='/auth/registration'
               >
-                Forgot Password
+                Or Registration Here!
               </Link>
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                className='login-form-button'
-                htmlType='submit'
-                type='primary'
-                size='large'
-                block
-                loading={loading}
-                disabled={loading}
-              >
-                Log In
-              </Button>
-            </Form.Item>
-
-            <Link
-              className='btn-login-registration'
-              href='/auth/registration'
-            >
-              Or Registration Here!
-            </Link>
-          </Form>
+            </Form>
           </div>
         </div>
       </MainLayout>

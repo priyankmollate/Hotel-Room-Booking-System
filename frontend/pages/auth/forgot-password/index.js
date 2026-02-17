@@ -45,48 +45,48 @@ function ForgotPassword() {
       <MainLayout title='Macau Resort ― Forgot Password'>
         <div className='auth-wrap'>
           <div className='auth-card'>
-          <Form
-            form={form}
-            className='login-form'
-            initialValues={{ remember: true }}
-            name='macau-resort-forgot-password-form'
-            onFinish={onFinish}
-          >
-            <Form.Item
-              name='email'
-              rules={[{
-                required: true,
-                message: 'Please input your Email!'
-              }]}
+            <Form
+              form={form}
+              className='login-form'
+              initialValues={{ remember: true }}
+              name='macau-resort-forgot-password-form'
+              onFinish={onFinish}
             >
-              <Input
-                prefix={<MailOutlined className='site-form-item-icon' />}
-                placeholder='Email'
-                size='large'
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                className='login-form-button'
-                htmlType='submit'
-                type='primary'
-                size='large'
-                block
-                loading={loading}
-                disabled={loading}
+              <Form.Item
+                name='email'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Email!'
+                }]}
               >
-                Forgot Password
-              </Button>
-            </Form.Item>
+                <Input
+                  prefix={<MailOutlined className='site-form-item-icon' />}
+                  placeholder='Email'
+                  size='large'
+                />
+              </Form.Item>
 
-            <Link
-              className='btn-login-registration'
-              href='/auth/login'
-            >
-              Or Login Here!
-            </Link>
-          </Form>
+              <Form.Item>
+                <Button
+                  className='login-form-button'
+                  htmlType='submit'
+                  type='primary'
+                  size='large'
+                  block
+                  loading={loading}
+                  disabled={loading}
+                >
+                  Forgot Password
+                </Button>
+              </Form.Item>
+
+              <Link
+                className='btn-login-registration'
+                href='/auth/login'
+              >
+                Or Login Here!
+              </Link>
+            </Form>
           </div>
         </div>
       </MainLayout>

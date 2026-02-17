@@ -45,64 +45,64 @@ function ResetPassword() {
       <MainLayout title='Macau Resort ― Reset Password'>
         <div className='auth-wrap'>
           <div className='auth-card'>
-          <Form
-            form={form}
-            className='login-form'
-            initialValues={{ remember: true }}
-            name='macau-resort-login-form'
-            onFinish={onFinish}
-          >
-            <Form.Item
-              name='password'
-              rules={[{
-                required: true,
-                message: 'Please input your Password!'
-              }]}
+            <Form
+              form={form}
+              className='login-form'
+              initialValues={{ remember: true }}
+              name='macau-resort-login-form'
+              onFinish={onFinish}
             >
-              <Input.Password
-                prefix={<LockOutlined className='site-form-item-icon' />}
-                placeholder='Password'
-                type='password'
-                size='large'
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='confirmPassword'
-              rules={[{
-                required: true,
-                message: 'Please input your Confirm Password!'
-              }]}
-            >
-              <Input.Password
-                prefix={<LockOutlined className='site-form-item-icon' />}
-                placeholder='Confirm Password'
-                type='password'
-                size='large'
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                className='login-form-button'
-                htmlType='submit'
-                type='primary'
-                size='large'
-                block
-                loading={loading}
-                disabled={loading}
+              <Form.Item
+                name='password'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Password!'
+                }]}
               >
-                Reset Password
-              </Button>
-            </Form.Item>
+                <Input.Password
+                  prefix={<LockOutlined className='site-form-item-icon' />}
+                  placeholder='Password'
+                  type='password'
+                  size='large'
+                />
+              </Form.Item>
 
-            <Link
-              className='btn-login-registration'
-              href='/auth/login'
-            >
-              or Login Here!
-            </Link>
-          </Form>
+              <Form.Item
+                name='confirmPassword'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Confirm Password!'
+                }]}
+              >
+                <Input.Password
+                  prefix={<LockOutlined className='site-form-item-icon' />}
+                  placeholder='Confirm Password'
+                  type='password'
+                  size='large'
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  className='login-form-button'
+                  htmlType='submit'
+                  type='primary'
+                  size='large'
+                  block
+                  loading={loading}
+                  disabled={loading}
+                >
+                  Reset Password
+                </Button>
+              </Form.Item>
+
+              <Link
+                className='btn-login-registration'
+                href='/auth/login'
+              >
+                or Login Here!
+              </Link>
+            </Form>
           </div>
         </div>
       </MainLayout>

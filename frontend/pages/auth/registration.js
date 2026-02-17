@@ -65,155 +65,155 @@ function Registration() {
       <MainLayout title='Macau Resort ― Registration'>
         <div className='auth-wrap'>
           <div className='auth-card'>
-          <Form
-            form={form}
-            className='login-form'
-            initialValues={{ remember: true }}
-            name='macau-resort-registration-form'
-            onFinish={onFinish}
-          >
-            <Form.Item
-              name='userName'
-              rules={[{
-                required: true,
-                message: 'Please input your User Name!'
-              }]}
+            <Form
+              form={form}
+              className='login-form'
+              initialValues={{ remember: true }}
+              name='macau-resort-registration-form'
+              onFinish={onFinish}
             >
-              <Input
-                prefix={<UserOutlined className='site-form-item-icon' />}
-                placeholder='User Name'
-                size='large'
-                allowClear
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='fullName'
-              rules={[{
-                required: true,
-                message: 'Please input your Full Name!'
-              }]}
-            >
-              <Input
-                prefix={<UserOutlined className='site-form-item-icon' />}
-                placeholder='Full Name'
-                size='large'
-                allowClear
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='email'
-              rules={[{
-                required: true,
-                message: 'Please input your Email!'
-              }]}
-            >
-              <Input
-                prefix={<MailOutlined className='site-form-item-icon' />}
-                placeholder='Email'
-                size='large'
-                allowClear
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='phone'
-              rules={[{
-                required: true,
-                message: 'Please input your Phone!'
-              }]}
-            >
-              <Input
-                prefix={<PhoneOutlined className='site-form-item-icon' />}
-                placeholder='Phone'
-                size='large'
-                allowClear
-                type='tel'
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='dob'
-              rules={[{
-                required: true,
-                message: 'Please input your Date Of Birth!'
-              }]}
-            >
-              <DatePicker
-                style={{ width: '100%' }}
-                placeholder='Pick your Date Of Birth'
-                size='large'
-                allowClear
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='gender'
-              rules={[{
-                required: true,
-                message: 'Please input your Gender!'
-              }]}
-            >
-              <Select placeholder='-- select your gender --' size='large' allowClear>
-                <Select.Option value='male'>Male</Select.Option>
-                <Select.Option value='female'>Female</Select.Option>
-              </Select>
-            </Form.Item>
-
-            <Form.Item
-              name='address'
-              rules={[{
-                required: true,
-                message: 'Please input your Address!'
-              }]}
-            >
-              <TextArea
-                placeholder='Address'
-                size='large'
-                allowClear
-                rows={2}
-              />
-            </Form.Item>
-
-            <Form.Item
-              name='password'
-              rules={[{
-                required: true,
-                message: 'Please input your Password!'
-              }]}
-            >
-              <Input.Password
-                prefix={<LockOutlined className='site-form-item-icon' />}
-                placeholder='Password'
-                size='large'
-                allowClear
-                type='tel'
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                style={{ marginTop: '10px' }}
-                className='login-form-button'
-                htmlType='submit'
-                type='primary'
-                size='large'
-                block
-                loading={loading}
-                disabled={loading}
+              <Form.Item
+                name='userName'
+                rules={[{
+                  required: true,
+                  message: 'Please input your User Name!'
+                }]}
               >
-                Registration
-              </Button>
-            </Form.Item>
+                <Input
+                  prefix={<UserOutlined className='site-form-item-icon' />}
+                  placeholder='User Name'
+                  size='large'
+                  allowClear
+                />
+              </Form.Item>
 
-            <Link
-              className='btn-login-registration'
-              href='/auth/login'
-            >
-              Or Login Here!
-            </Link>
-          </Form>
+              <Form.Item
+                name='fullName'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Full Name!'
+                }]}
+              >
+                <Input
+                  prefix={<UserOutlined className='site-form-item-icon' />}
+                  placeholder='Full Name'
+                  size='large'
+                  allowClear
+                />
+              </Form.Item>
+
+              <Form.Item
+                name='email'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Email!'
+                }]}
+              >
+                <Input
+                  prefix={<MailOutlined className='site-form-item-icon' />}
+                  placeholder='Email'
+                  size='large'
+                  allowClear
+                />
+              </Form.Item>
+
+              <Form.Item
+                name='phone'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Phone!'
+                }]}
+              >
+                <Input
+                  prefix={<PhoneOutlined className='site-form-item-icon' />}
+                  placeholder='Phone'
+                  size='large'
+                  allowClear
+                  type='tel'
+                />
+              </Form.Item>
+
+              <Form.Item
+                name='dob'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Date Of Birth!'
+                }]}
+              >
+                <DatePicker
+                  style={{ width: '100%' }}
+                  placeholder='Pick your Date Of Birth'
+                  size='large'
+                  allowClear
+                />
+              </Form.Item>
+
+              <Form.Item
+                name='gender'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Gender!'
+                }]}
+              >
+                <Select placeholder='-- select your gender --' size='large' allowClear>
+                  <Select.Option value='male'>Male</Select.Option>
+                  <Select.Option value='female'>Female</Select.Option>
+                </Select>
+              </Form.Item>
+
+              <Form.Item
+                name='address'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Address!'
+                }]}
+              >
+                <TextArea
+                  placeholder='Address'
+                  size='large'
+                  allowClear
+                  rows={2}
+                />
+              </Form.Item>
+
+              <Form.Item
+                name='password'
+                rules={[{
+                  required: true,
+                  message: 'Please input your Password!'
+                }]}
+              >
+                <Input.Password
+                  prefix={<LockOutlined className='site-form-item-icon' />}
+                  placeholder='Password'
+                  size='large'
+                  allowClear
+                  type='tel'
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  style={{ marginTop: '10px' }}
+                  className='login-form-button'
+                  htmlType='submit'
+                  type='primary'
+                  size='large'
+                  block
+                  loading={loading}
+                  disabled={loading}
+                >
+                  Registration
+                </Button>
+              </Form.Item>
+
+              <Link
+                className='btn-login-registration'
+                href='/auth/login'
+              >
+                Or Login Here!
+              </Link>
+            </Form>
           </div>
         </div>
       </MainLayout>

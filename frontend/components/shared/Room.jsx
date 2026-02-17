@@ -19,7 +19,8 @@ function Room({ room }) {
           alt={room?.room_name || 'Room'}
         />
         <div className='price-top'>
-          ${room?.room_price}
+          $
+          {room?.room_price}
           <span> / night</span>
         </div>
         <Link className='btn-primary room-link' href={`/rooms/${room?.room_slug}`}>
