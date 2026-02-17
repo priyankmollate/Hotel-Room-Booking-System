@@ -16,8 +16,8 @@ export const appSlice = createSlice({
     isLoading: false,
     reFetch: false,
     theme: {
-      colorPrimary: '#af9a7d',
-      colorLink: '#ececec'
+      colorPrimary: '#b8860b',
+      colorLink: '#b8860b'
     }
   },
   reducers: {

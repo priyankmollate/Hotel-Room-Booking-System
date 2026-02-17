@@ -25,43 +25,31 @@ function Navbar() {
     <nav className='navbar'>
       <div className='nav-center'>
         <div className='nav-header'>
-          {/* app logo */}
           <Link href='/'>
-            <img src='/images//svg/logo.svg' alt='Reach Resort' />
+            <img src='/images/svg/logo.svg' alt='Macau Resort' className='nav-logo' />
           </Link>
-
-          {/* navbar toggle button */}
           <button
             className='nav-btn'
             onClick={() => setIsOpen(!isOpen)}
             type='button'
+            aria-label='Toggle menu'
           >
             <FaAlignRight className='nav-icon' />
           </button>
-
         </div>
 
-        {/* navbar login button */}
-        {user?.id && token ? (<UserPopover />) : (
-          <Button
-            style={{ position: 'absolute', right: '100px', top: '20px' }}
-            onClick={() => router.push('/auth/login')}
-            type='primary'
-            size='large'
-          >
-            Log In
-          </Button>
-        )}
-
-        {/* navbar link */}
         <ul className={isOpen ? 'nav-links show-nav' : 'nav-links'}>
-          <li>
-            <Link href='/'>Home</Link>
-          </li>
-          <li>
-            <Link href='/rooms'>Rooms</Link>
-          </li>
+          <li><Link href='/' onClick={() => setIsOpen(false)}>Home</Link></li>
+          <li><Link href='/rooms' onClick={() => setIsOpen(false)}>Rooms</Link></li>
         </ul>
+
+        <div className='nav-cta'>
+          {user?.id && token ? <UserPopover /> : (
+            <Button type='primary' size='large' onClick={() => router.push('/auth/login')}>
+              Log In
+            </Button>
+          )}
+        </div>
       </div>
     </nav>
   );

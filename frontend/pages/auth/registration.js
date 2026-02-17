@@ -62,14 +62,14 @@ function Registration() {
 
   return (
     <PublicRoute>
-      <MainLayout title='Beach Resort ― Registration'>
-        <div style={{ width: '400px', height: 'calc(100vh - 205px)', margin: '0 auto' }}>
+      <MainLayout title='Macau Resort ― Registration'>
+        <div className='auth-wrap'>
+          <div className='auth-card'>
           <Form
             form={form}
             className='login-form'
-            style={{ padding: '20px 0' }}
             initialValues={{ remember: true }}
-            name='beach-resort-registration-form'
+            name='macau-resort-registration-form'
             onFinish={onFinish}
           >
             <Form.Item
@@ -214,6 +214,7 @@ function Registration() {
               Or Login Here!
             </Link>
           </Form>
+          </div>
         </div>
       </MainLayout>
     </PublicRoute>

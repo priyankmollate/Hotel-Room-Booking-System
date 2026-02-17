@@ -56,7 +56,7 @@ function MyProfile() {
         {error ? (
           <Result
             title='Failed to fetch'
-            subTitle={error}
+            subTitle={typeof error === 'string' ? error : (error?.message || 'Something went wrong')}
             status='error'
           />
         ) : (

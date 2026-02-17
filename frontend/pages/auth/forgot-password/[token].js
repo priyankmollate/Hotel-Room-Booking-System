@@ -42,14 +42,14 @@ function ResetPassword() {
 
   return (
     <PublicRoute>
-      <MainLayout title='Beach Resort ― Reset Password'>
-        <div style={{ width: '400px', height: 'calc(100vh - 205px)', margin: '0 auto' }}>
+      <MainLayout title='Macau Resort ― Reset Password'>
+        <div className='auth-wrap'>
+          <div className='auth-card'>
           <Form
             form={form}
             className='login-form'
-            style={{ paddingTop: '160px' }}
             initialValues={{ remember: true }}
-            name='beach-resort-login-form'
+            name='macau-resort-login-form'
             onFinish={onFinish}
           >
             <Form.Item
@@ -103,6 +103,7 @@ function ResetPassword() {
               or Login Here!
             </Link>
           </Form>
+          </div>
         </div>
       </MainLayout>
     </PublicRoute>

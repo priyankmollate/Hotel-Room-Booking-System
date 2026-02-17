@@ -13,6 +13,7 @@ function Banner({ children, title, subtitle }) {
   return (
     <div className='banner'>
       <h1>{title}</h1>
+      <div className='banner-line' aria-hidden />
       <p>{subtitle}</p>
       {children}
     </div>

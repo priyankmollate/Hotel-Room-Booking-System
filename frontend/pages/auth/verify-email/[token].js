@@ -49,7 +49,7 @@ function VerifyEmail() {
 
   return (
     <PrivateRoute>
-      <MainLayout title='Beach Resort ― Verify Email'>
+      <MainLayout title='Macau Resort ― Verify Email'>
         <div style={{ width: '400px', height: 'calc(100vh - 205px)', margin: '0 auto' }}>
           {/* loader showing */}
           {loading && (<Loading />)}

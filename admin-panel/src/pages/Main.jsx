@@ -32,7 +32,7 @@ const {
 } = Layout;
 
 function Main() {
-  window.document.title = 'Beach Resort — Main';
+  window.document.title = 'Macau Resort — Main';
   const { isFullscreen, toggleFullScreen } = useFullScreen();
   const [selectedKeys, setSelectedKeys] = useState('1');
   const navigate = useNavigate();
@@ -123,31 +123,31 @@ function Main() {
   useEffect(() => {
     switch (selectedKeys) {
       case '1': {
-        window.document.title = 'Beach Resort — Dashboard';
+        window.document.title = 'Macau Resort — Dashboard';
         break;
       }
       case '2': {
-        window.document.title = 'Beach Resort — Users';
+        window.document.title = 'Macau Resort — Users';
         break;
       }
       case '3': {
-        window.document.title = 'Beach Resort — Hotel Rooms';
+        window.document.title = 'Macau Resort — Hotel Rooms';
         break;
       }
       case '4': {
-        window.document.title = 'Beach Resort — Booking Orders';
+        window.document.title = 'Macau Resort — Booking Orders';
         break;
       }
       case '5': {
-        window.document.title = 'Beach Resort — Profile';
+        window.document.title = 'Macau Resort — Profile';
         break;
       }
       case '6': {
-        window.document.title = 'Beach Resort — Logout';
+        window.document.title = 'Macau Resort — Logout';
         break;
       }
       default: {
-        window.document.title = 'Beach Resort — Dashboard';
+        window.document.title = 'Macau Resort — Dashboard';
       }
     }
   }, [selectedKeys]);
@@ -204,7 +204,7 @@ function Main() {
           <Link to='/'>
             <img
               className='w-[280px] h-[65px] mx-auto'
-              alt='beach-resort-logo'
+              alt='macau-resort-logo'
               src={Logo}
             />
           </Link>
@@ -233,7 +233,7 @@ function Main() {
         </Content>
 
         <Footer className='text-center font-text-font font-medium '>
-          ©2023 Beach Resort — Developed By
+          ©2023 Macau Resort — Developed By
           {' '}
           <a
             className='text-color-primary hover:text-color-secondary'

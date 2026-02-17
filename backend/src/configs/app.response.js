@@ -28,6 +28,17 @@ exports.successResponse = (resultCode, title, message, data, maintenance) => ({
 });
 
 /**
+ * Normalize error to a string so it never serializes as {} (e.g. raw Error objects).
+ */
+const normalizeError = (error) => {
+  if (error == null) return 'Unknown error';
+  if (typeof error === 'string') return error;
+  if (error instanceof Error) return error.message || String(error);
+  if (typeof error === 'object' && typeof error.message === 'string') return error.message;
+  return String(error);
+};
+
+/**
  * function to all API same formatted error response provider
  * @param {Number} resultCode API response defined custom result_code
  * @param {String} title API response title based on result_code
@@ -40,6 +51,7 @@ exports.errorResponse = (resultCode, title, error, maintenance) => ({
   time: currentDateTime(),
   maintenance_info: maintenance || null,
   result: {
-    title, error
+    title,
+    error: normalizeError(error)
   }
 });

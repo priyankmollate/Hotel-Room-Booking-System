@@ -33,7 +33,7 @@ function Rooms(props) {
   }, [props]);
 
   return (
-    <MainLayout title='Beach Resort ― Rooms'>
+    <MainLayout title='Macau Resort ― Rooms'>
       <Hero hero='roomsHero'>
         <Banner title='our rooms'>
           <Link className='btn-primary' href='/'>
@@ -71,10 +71,14 @@ function Rooms(props) {
   );
 }
 
+const API_TIMEOUT_MS = 8000;
+
 export async function getServerSideProps() {
   try {
-    // Fetch data from the server-side API
-    const response = await axios.get(`${publicRuntimeConfig.API_BASE_URL}/api/v1/all-rooms-list`);
+    const response = await axios.get(
+      `${publicRuntimeConfig.API_BASE_URL}/api/v1/all-rooms-list`,
+      { timeout: API_TIMEOUT_MS }
+    );
     const rooms = response?.data?.result;
 
     return {
@@ -84,10 +88,13 @@ export async function getServerSideProps() {
       }
     };
   } catch (err) {
+    const message = err?.code === 'ECONNABORTED'
+      ? 'Request timed out. Is the backend running on the correct port?'
+      : (err?.response?.data?.result?.error || err?.message || 'Failed to fetch rooms');
     return {
       props: {
         rooms: null,
-        error: err?.data || { message: 'Failed to fetch rooms' }
+        error: { message }
       }
     };
   }

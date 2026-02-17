@@ -45,7 +45,7 @@ function RoomPreview(props) {
 
   return (
     <>
-      <MainLayout title='Beach Resort ― Rooms Preview'>
+      <MainLayout title='Macau Resort ― Rooms Preview'>
         {!props?.room && !props?.error ? (
           <Loading />
         ) : props?.error ? (
@@ -144,11 +144,13 @@ function RoomPreview(props) {
   );
 }
 
+const API_TIMEOUT_MS = 8000;
+
 export async function getServerSideProps(ctx) {
   try {
-    // Fetch data from the server-side API
     const response = await axios.get(
-      `${publicRuntimeConfig.API_BASE_URL}/api/v1/get-room-by-id-or-slug-name/${ctx.query.slug}`
+      `${publicRuntimeConfig.API_BASE_URL}/api/v1/get-room-by-id-or-slug-name/${ctx.query.slug}`,
+      { timeout: API_TIMEOUT_MS }
     );
     const room = response?.data?.result;
 
@@ -159,10 +161,13 @@ export async function getServerSideProps(ctx) {
       }
     };
   } catch (err) {
+    const message = err?.code === 'ECONNABORTED'
+      ? 'Request timed out. Is the backend running?'
+      : (err?.response?.data?.result?.error || err?.message || 'Failed to fetch room details');
     return {
       props: {
         room: null,
-        error: err?.data || { message: 'Failed to fetch room details' }
+        error: { message }
       }
     };
   }

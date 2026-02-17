@@ -42,14 +42,14 @@ function ForgotPassword() {
 
   return (
     <PublicRoute>
-      <MainLayout title='Beach Resort ― Forgot Password'>
-        <div style={{ width: '400px', height: 'calc(100vh - 205px)', margin: '0 auto' }}>
+      <MainLayout title='Macau Resort ― Forgot Password'>
+        <div className='auth-wrap'>
+          <div className='auth-card'>
           <Form
             form={form}
             className='login-form'
-            style={{ paddingTop: '200px' }}
             initialValues={{ remember: true }}
-            name='beach-resort-forgot-password-form'
+            name='macau-resort-forgot-password-form'
             onFinish={onFinish}
           >
             <Form.Item
@@ -87,6 +87,7 @@ function ForgotPassword() {
               Or Login Here!
             </Link>
           </Form>
+          </div>
         </div>
       </MainLayout>
     </PublicRoute>
