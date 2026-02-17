@@ -20,7 +20,8 @@
 const app = require('./src/app');
 const logger = require('./src/middleware/winston.logger');
 
-// app listens to .env defined port
-app.listen(process.env.APP_PORT, () => {
-  logger.info(`App server running on: ${process.env.APP_BASE_URL}`);
+// app listens to PORT (Railway/Render) or APP_PORT (local .env)
+const port = process.env.PORT || process.env.APP_PORT || 5001;
+app.listen(port, () => {
+  logger.info(`App server running on: ${process.env.APP_BASE_URL || 'http://localhost:' + port}`);
 });
