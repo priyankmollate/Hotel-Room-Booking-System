@@ -62,13 +62,17 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// sets favicon in API routes
-if (process.env.APP_NODE_ENV !== 'production') {
-  app.use(favicon(`${appRoot}/public/favicon.ico`));
+// sets favicon in API routes (skip on Vercel — read-only filesystem)
+if (process.env.APP_NODE_ENV !== 'production' && !process.env.VERCEL) {
+  try {
+    app.use(favicon(`${appRoot.path}/public/favicon.ico`));
+  } catch (e) { /* ignore */ }
 }
 
-// sets static folder
-app.use(express.static('public'));
+// sets static folder (path relative to process cwd; skip if missing on Vercel)
+try {
+  app.use(express.static('public'));
+} catch (e) { /* ignore */ }
 
 // parse requests of content-type ~ application/json
 app.use(express.json());

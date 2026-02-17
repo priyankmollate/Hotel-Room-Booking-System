@@ -14,27 +14,28 @@ const FileStreamRotator = require('file-stream-rotator');
 const morgan = require('morgan');
 
 function morganLogger() {
-  const LOGS_FOLDER = `${appRoot}/logs/access`;
-
-  // if not exist logs folder to create
-  if (!fs.existsSync(`${appRoot}/logs`)) {
-    fs.mkdirSync(`${appRoot}/logs`);
+  // On Vercel/serverless, filesystem is read-only; use stdout only
+  if (process.env.VERCEL) {
+    return morgan('combined');
   }
-
-  // if not exist access folder to create
-  if (!fs.existsSync(LOGS_FOLDER)) {
-    fs.mkdirSync(LOGS_FOLDER);
+  try {
+    const LOGS_FOLDER = path.join(appRoot.path, 'logs', 'access');
+    if (!fs.existsSync(path.join(appRoot.path, 'logs'))) {
+      fs.mkdirSync(path.join(appRoot.path, 'logs'));
+    }
+    if (!fs.existsSync(LOGS_FOLDER)) {
+      fs.mkdirSync(LOGS_FOLDER);
+    }
+    const accessLogStream = FileStreamRotator.getStream({
+      date_format: 'YYYY-MM-DD',
+      filename: path.join(LOGS_FOLDER, 'access-%DATE%.log'),
+      frequency: 'daily',
+      verbose: false
+    });
+    return morgan('combined', { stream: accessLogStream });
+  } catch (err) {
+    return morgan('combined');
   }
-
-  // create a rotating write stream
-  const accessLogStream = FileStreamRotator.getStream({
-    date_format: 'YYYY-MM-DD',
-    filename: path.join(LOGS_FOLDER, 'access-%DATE%.log'),
-    frequency: 'daily',
-    verbose: false
-  });
-
-  return (morgan('combined', { stream: accessLogStream }));
 }
 
 module.exports = morganLogger;
